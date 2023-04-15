@@ -15,9 +15,10 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @RequestMapping("curso")
-public class ContaController {
+public class CursoController {
     @Autowired
     private CursoRepository cursoRepository;
+
 
     @PostMapping("cadastrar")
     public String processarFormulario(@Validated Curso curso, BindingResult result, RedirectAttributes redirectAttributes) {
@@ -38,7 +39,7 @@ public class ContaController {
     @GetMapping("editar/{id}")
     public String editar(@PathVariable("id") Long codigo, Model model){
         model.addAttribute("curso",cursoRepository.findById(codigo));
-        return "produto/form";
+        return "curso/form";
     }
 
     @PostMapping("excluir")
